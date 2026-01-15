@@ -15,7 +15,7 @@ def split_sentences(text):
     sentences = re.split(r'[.\n]+', text)
     return [s.strip() for s in sentences if s.strip()]
 
-# --- BAGIAN 2: ALGORITMA KMP (Tidak Ada Perubahan) ---
+# --- BAGIAN 2: ALGORITMA KMP ---
 def compute_lps_array(pattern, M, lps):
     length = 0
     lps[0] = 0
@@ -53,7 +53,7 @@ def kmp_search(pattern, text):
                 i += 1
     return False
 
-# --- BAGIAN 3: ALGORITMA BOYER-MOORE (REVISI DICTIONARY) ---
+# --- BAGIAN 3: ALGORITMA BOYER-MOORE ---
 def bad_char_heuristic(string, size):
     bad_char = {} 
     
@@ -131,4 +131,5 @@ def calculate_similarity(doc_suspect, doc_original, algorithm="KMP"):
     execution_time = time.time() - start_time
     percentage = (matches / len(valid_patterns)) * 100
     
+
     return percentage, execution_time, detected_sentences
